@@ -14,14 +14,13 @@ class TriangleFacadeImplSpec extends Specification {
     def "Should correctly create response for #triangleType"() {
         given: "Valid input user data"
         TriangleService triangleServiceMock = Mock(TriangleServiceImpl.class)
-        triangleServiceMock.determineType(a, b, c) >> triangleType
         TriangleFacadeImpl triangleFacade = new TriangleFacadeImpl(triangleServiceMock)
 
         when: "Ask for triangle evaluation"
         TriangleResponse response = triangleFacade.evaluateTriangle(a, b, c)
 
         then: "The correct response being generated"
-        1 * triangleServiceMock.determineType(a, b, c)
+        1 * triangleServiceMock.determineType(a, b, c)  >> triangleType
         response.getDescription().equals(triangleType.getDescription())
         response.isTriangle() == triangleType.isTriangle()
 
