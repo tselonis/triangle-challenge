@@ -14,7 +14,8 @@ public class HomeController {
         model.addAttribute("title", "Welcome To Triangle Application!");
         model.addAttribute("infoMessage", "This is a simple application for evaluating the type of a triangle.");
         model.addAttribute("promptMessage", "Please provide input for all the triangle sides.");
-        model.addAttribute("btnMessage", "Evaluate");
+        model.addAttribute("btnEvaluateMessage", "Evaluate");
+        model.addAttribute("btnClearMessage", "Clear");
         return "home";
     }
 
