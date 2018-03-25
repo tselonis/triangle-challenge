@@ -11,7 +11,7 @@
     <title>Triangle</title>
 </head>
 <body>
-<div id="main_container" class="container-fluid">
+<div id="main_container" class="container-fluid" ng-controller="mainController">
 
     <div class="jumbotron">
         <h1 class="display-4">${title}</h1>
@@ -45,11 +45,16 @@
         <p class="lead">
             <div class="btn btn-primary btn-lg">${btnMessage}</div>
         </p>
+
+        {{name}}
+
     </div>
 
 </div>
 
+<#--Import JS files-->
 <script src="js/lib/angular.min.js"></script>
 <script src="js/app/app.js"></script>
+<script src="js/app/controllers/controllers.js"></script>
 </body>
 </html>
