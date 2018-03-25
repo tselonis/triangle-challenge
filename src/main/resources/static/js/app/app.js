@@ -33,7 +33,7 @@ triangleApp.controller("mainController", function ($scope, $http, restApiContext
                 if (response.status === 422) {
                     $scope.outcomeMessage = response.data.message;
                 } else {
-                    $scope.outcomeMessage = response.data.error + " - Provide integers for all the sides of the triangle";
+                    $scope.outcomeMessage = response.data.error + " - Provide positive integers for all the sides of the triangle.";
                 }
             }
         );
