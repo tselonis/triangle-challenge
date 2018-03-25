@@ -46,9 +46,15 @@
             </p>
 
             <#--Outcome Section-->
-            <div class="alert" role="alert" ng-class="outcomeClass" ng-show="showOutcome">
+            <div class="alert alert-success" role="alert" ng-show="successOutcome">
                 {{outcomeMessage}}
             </div>
+
+        <#--Error Section-->
+            <div class="alert alert-danger" role="alert" ng-show="errorOutcome">
+                <@spring.message "positive.integers.message"/>
+            </div>
+
 
         </div>
 
