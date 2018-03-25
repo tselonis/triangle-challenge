@@ -2,9 +2,8 @@ package unit.com.example.triangle.controllers.rest
 
 import com.example.triangle.business.rest.facade.api.TriangleFacade
 import com.example.triangle.business.rest.facade.runtime.TriangleFacadeImpl
-import com.example.triangle.business.rest.factories.TriangleResponseFactory
 import com.example.triangle.controllers.rest.TriangleController
-import com.example.triangle.enums.TriangleType
+import com.example.triangle.response.rest.TriangleResponse
 import spock.lang.Specification
 
 class TriangleControllerSpec extends Specification {
@@ -12,7 +11,7 @@ class TriangleControllerSpec extends Specification {
     def "Should correctly interact with dependencies"() {
         given: "Mock dependencies for Controller"
         TriangleFacade triangleFacadeMock = Mock(TriangleFacadeImpl.class)
-        triangleFacadeMock.evaluateTriangle(1, 1, 1) >> TriangleResponseFactory.createResponse(TriangleType.EQUILATERAL)
+        triangleFacadeMock.evaluateTriangle(1, 1, 1) >> new TriangleResponse(true, "Equilateral triangle")
         TriangleController triangleController = new TriangleController(triangleFacadeMock)
 
         when: "Evaluate triangle type is asked"
