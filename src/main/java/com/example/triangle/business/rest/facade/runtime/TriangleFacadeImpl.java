@@ -11,14 +11,16 @@ import org.springframework.stereotype.Component;
 public class TriangleFacadeImpl implements TriangleFacade {
 
     private TriangleService triangleService;
+    private TriangleResponseFactory triangleResponseFactory;
 
     @Autowired
-    public TriangleFacadeImpl(TriangleService triangleService) {
+    public TriangleFacadeImpl(TriangleService triangleService, TriangleResponseFactory triangleResponseFactory) {
         this.triangleService = triangleService;
+        this.triangleResponseFactory = triangleResponseFactory;
     }
 
     @Override
     public TriangleResponse evaluateTriangle(int a, int b, int c) {
-        return TriangleResponseFactory.createResponse(triangleService.determineType(a, b, c));
+        return triangleResponseFactory.createResponse(triangleService.determineType(a, b, c));
     }
 }

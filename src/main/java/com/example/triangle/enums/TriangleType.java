@@ -2,10 +2,10 @@ package com.example.triangle.enums;
 
 public enum TriangleType {
 
-    NO_TRIANGLE(false, "No triangle"),
-    EQUILATERAL(true, "Equilateral triangle"),
-    ISOSCELES(true, "Isosceles triangle"),
-    SCALENE(true, "Scalene triangle");
+    NO_TRIANGLE(false, "triangle.no"),
+    EQUILATERAL(true, "triangle.equilateral"),
+    ISOSCELES(true, "triangle.isosceles"),
+    SCALENE(true, "triangle.scalene");
 
     private final boolean isTriangle;
     private final String description;
