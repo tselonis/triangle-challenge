@@ -19,27 +19,7 @@
             <hr class="my-4">
             <p>${promptMessage}</p>
 
-        <#-- Input side lengths-->
-            <#--<div class="input-group mb-3">-->
-                <#--<div class="input-group-prepend">-->
-                    <#--<span class="input-group-text" id="input-group-text-1">side a</span>-->
-                <#--</div>-->
-                <#--<input type="text" class="form-control" id="side_1" aria-describedby="input-group-text-1" ng-model="side_a">-->
-            <#--</div>-->
-
-            <#--<div class="input-group mb-3">-->
-                <#--<div class="input-group-prepend">-->
-                    <#--<span class="input-group-text" id="input-group-text-2">side b</span>-->
-                <#--</div>-->
-                <#--<input type="text" class="form-control" id="side_2" aria-describedby="input-group-text-2" ng-model="side_b">-->
-            <#--</div>-->
-
-            <#--<div class="input-group mb-3">-->
-                <#--<div class="input-group-prepend">-->
-                    <#--<span class="input-group-text" id="input-group-text-3">side c</span>-->
-                <#--</div>-->
-                <#--<input type="text" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="side_c">-->
-            <#--</div>-->
+            <#--Input Section-->
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="input-group-text-1">side a</span>
@@ -57,22 +37,18 @@
                 <input type="text" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="triangleSides.side_c">
             </div>
 
-        <#--Evaluate btn-->
+            <#--Button Section-->
             <p class="lead">
                 <button type="button" class="btn btn-primary btn-lg" ng-click="evaluateTriangle(triangleSides)">${btnEvaluateMessage}</button>
                 <button type="button" class="btn btn-danger btn-lg" ng-click="clear()">${btnClearMessage}</button>
             </p>
             <p class="lead">
             </p>
-    <#--TO BE REMOVED -->
 
+            <#--Outcome Section-->
             <div class="alert" role="alert" ng-class="outcomeClass" ng-show="showOutcome">
                 {{outcomeMessage}}
             </div>
-
-            {{side_a}}
-            {{side_b}}
-            {{side_c}}
 
         </div>
 
@@ -81,6 +57,5 @@
 <#--Import JS files-->
 <script src="js/lib/angular.min.js"></script>
 <script src="js/app/app.js"></script>
-<#--<script src="js/app/controllers/controllers.js"></script>-->
 </body>
 </html>
