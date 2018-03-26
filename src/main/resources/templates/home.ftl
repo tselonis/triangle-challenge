@@ -42,8 +42,6 @@
                 <button type="button" class="btn btn-primary btn-lg" ng-click="evaluateTriangle(triangleSides)"><@spring.message "btnEvaluateMessage"/></button>
                 <button type="button" class="btn btn-danger btn-lg" ng-click="clear()"><@spring.message "btnClearMessage"/></button>
             </p>
-            <p class="lead">
-            </p>
 
             <#--Outcome Section-->
             <div class="alert alert-success" role="alert" ng-show="successOutcome">
@@ -60,8 +58,9 @@
 
     </div>
 
-<#--Import JS files-->
-<script src="js/lib/angular.min.js"></script>
-<script src="js/app/app.js"></script>
+    <#--Import JS files-->
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/app/modules/controllers.js"></script>
+    <script src="js/app/app.js"></script>
 </body>
 </html>
