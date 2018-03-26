@@ -25,9 +25,9 @@ public class TriangleController {
 
     @GetMapping(value = "/type/evaluate")
     public TriangleResponse evaluateType(
-            @Positive @RequestParam("a") int a,
-            @Positive @RequestParam("b") int b,
-            @Positive @RequestParam("c") int c) {
+            @Positive(message = "{validation.positive}") @RequestParam("a") int a,
+            @Positive(message = "{validation.positive}") @RequestParam("b") int b,
+            @Positive(message = "{validation.positive}") @RequestParam("c") int c) {
 
         return triangleFacade.evaluateTriangle(a, b, c);
     }
