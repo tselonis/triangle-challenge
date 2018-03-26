@@ -155,7 +155,7 @@ General Programming
 -------------------
 - Reference through interfaces which allow us to switch easily implementations.
 - Single responsibility principle (all classes have only one reason to change).
-- Dependency Injection (all dependencies are being injected through constructor injection with the help of Spring Framework)
-- Easy testing
-- Java Based Spring Configuration over XML
-
+- Dependency Injection (all dependencies are being injected through constructor injection with the help of Spring Framework) -> loose coupling.
+- Java Based Spring Configuration over XML.
+- Spock used as a test framework especially for its expressiveness.
+- ValidationMessages.properties being used to host bean validation messages.q
