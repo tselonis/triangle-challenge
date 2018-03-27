@@ -2,14 +2,12 @@
 Design Decisions And Implementation Choices
 -------------------------------------------
 
-
 General
 -----
 The system constitutes a web application, providing a simple user interface for interacting with the core part of the system.
 The system architecture and several design and implementation choices are described below.
 
 ==========================================================================================================================================
-
 
 Front End Part
 ==============
@@ -61,6 +59,7 @@ Tech Stack
 - REST API using Spring MVC Controllers
 - Java Bean Validation Using hibernate validator
 - Spock unit test framework
+- Spring testing
 
 Description
 -----------
@@ -158,4 +157,5 @@ General Programming
 - Dependency Injection (all dependencies are being injected through constructor injection with the help of Spring Framework) -> loose coupling.
 - Java Based Spring Configuration over XML.
 - Spock used as a test framework especially for its expressiveness.
+- Spring test used as an integration framework for spring controllers.
 - ValidationMessages.properties being used to host bean validation messages.
