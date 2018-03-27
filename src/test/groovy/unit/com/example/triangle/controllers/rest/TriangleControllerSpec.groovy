@@ -4,9 +4,11 @@ import com.example.triangle.business.rest.facade.api.TriangleFacade
 import com.example.triangle.business.rest.facade.runtime.TriangleFacadeImpl
 import com.example.triangle.controllers.rest.TriangleController
 import spock.lang.Specification
+import spock.lang.Unroll
 
 class TriangleControllerSpec extends Specification {
 
+    @Unroll
     def "Should correctly interact with dependencies"() {
         given: "Mock dependencies for Controller"
         TriangleFacade triangleFacadeMock = Mock(TriangleFacadeImpl.class)

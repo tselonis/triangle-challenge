@@ -8,7 +8,6 @@ import spock.lang.Unroll
 
 class TriangleServiceImplSpec extends Specification {
 
-
     @Unroll
     def "Should correctly determine triangle type for #triangleType"() {
         given: "A service object"
@@ -28,5 +27,4 @@ class TriangleServiceImplSpec extends Specification {
         7 | 1 | 2 | TriangleType.NO_TRIANGLE
 
     }
-
 }

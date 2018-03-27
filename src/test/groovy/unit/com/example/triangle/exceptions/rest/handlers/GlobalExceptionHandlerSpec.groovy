@@ -17,7 +17,6 @@ class GlobalExceptionHandlerSpec extends Specification {
         ConstraintViolationException exception = new ConstraintViolationException(ERROR_MESSAGE, [].toSet())
         GlobalExceptionHandler globalExceptionHandler = new GlobalExceptionHandler()
 
-
         when: "The handler is being triggered"
         GeneralErrorResponse errorResponse = globalExceptionHandler.handle(exception)
 
@@ -25,5 +24,4 @@ class GlobalExceptionHandlerSpec extends Specification {
         errorResponse.getMessage().equals(ERROR_MESSAGE)
         errorResponse.getStatusCode() == HttpStatus.UNPROCESSABLE_ENTITY.value()
     }
-
 }

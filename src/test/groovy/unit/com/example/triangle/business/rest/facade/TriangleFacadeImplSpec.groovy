@@ -22,17 +22,16 @@ class TriangleFacadeImplSpec extends Specification {
         TriangleResponse response = triangleFacade.evaluateTriangle(a, b, c)
 
         then: "The correct response being generated"
-        1 * triangleServiceMock.determineType(a, b, c)  >> triangleType
+        1 * triangleServiceMock.determineType(a, b, c) >> triangleType
         1 * triangleResponseFactoryMock.createResponse(triangleType) >> expectedResponse
         response.getDescription().equals(expectedResponse.getDescription())
         response.isTriangle() == expectedResponse.isTriangle()
 
         where:
-        a | b | c | triangleType                | expectedResponse
-        7 | 1 | 2 | TriangleType.NO_TRIANGLE    | new TriangleResponse(false, "No triangle")
-        1 | 1 | 1 | TriangleType.EQUILATERAL    | new TriangleResponse(true, "Equilateral triangle")
-        5 | 4 | 5 | TriangleType.ISOSCELES      | new TriangleResponse(true, "Isosceles triangle")
-        7 | 4 | 5 | TriangleType.SCALENE        | new TriangleResponse(true, "Scalene triangle")
-
+        a | b | c | triangleType             | expectedResponse
+        7 | 1 | 2 | TriangleType.NO_TRIANGLE | new TriangleResponse(false, "No triangle")
+        1 | 1 | 1 | TriangleType.EQUILATERAL | new TriangleResponse(true, "Equilateral triangle")
+        5 | 4 | 5 | TriangleType.ISOSCELES   | new TriangleResponse(true, "Isosceles triangle")
+        7 | 4 | 5 | TriangleType.SCALENE     | new TriangleResponse(true, "Scalene triangle")
     }
 }
