@@ -24,7 +24,6 @@ public class TriangleControllerTests {
     private final String REST_API_CONTEXT_PATH = "/triangle/type/evaluate";
     private final String QUERY_PARAM_SEPARATOR = "&";
 
-
     private MockMvc mockMvc;
 
     @Mock
@@ -94,11 +93,24 @@ public class TriangleControllerTests {
         Mockito.verify(triangleFacade).evaluateTriangle(a, b, c);
     }
 
+    @Test
+    public void testBadRequest() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.get(createBadRequestUrl())).andExpect(MockMvcResultMatchers.status().isBadRequest());
+    }
+
     private String createRequestUrl(int a, int b, int c) {
         String url = REST_API_CONTEXT_PATH + "?" +
                 "a=" + a + QUERY_PARAM_SEPARATOR +
                 "b=" + b + QUERY_PARAM_SEPARATOR +
                 "c=" + c;
+        return url;
+    }
+
+    private String createBadRequestUrl() {
+        String url = REST_API_CONTEXT_PATH + "?" +
+                "a=" + 1 + QUERY_PARAM_SEPARATOR +
+                "b=" + 1 + QUERY_PARAM_SEPARATOR +
+                "c=";
         return url;
     }
 
