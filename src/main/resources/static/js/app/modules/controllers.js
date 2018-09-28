@@ -22,9 +22,9 @@ controllersModule.controller("mainController", function ($scope, $http, restApiC
         $scope.initOutcome();
 
         var resourceUrl = EVALUATE_TYPE_URL
-            + "a=" + triangleSides.side_a + QUERY_PARAM_SEPARATOR
-            + "b=" + triangleSides.side_b + QUERY_PARAM_SEPARATOR
-            + "c=" + triangleSides.side_c;
+            + "a=" + triangleSides.a + QUERY_PARAM_SEPARATOR
+            + "b=" + triangleSides.b + QUERY_PARAM_SEPARATOR
+            + "c=" + triangleSides.c;
 
         $http.get(restApiContextPath + resourceUrl).then(
             function successCallback(response) {

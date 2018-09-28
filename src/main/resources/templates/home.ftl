@@ -14,33 +14,33 @@
     <div id="main_container" class="container-fluid">
 
         <div class="jumbotron">
-            <h1 class="display-4"><@spring.message "welcomeMessage"/></h1>
-            <p class="lead"><@spring.message "infoMessage"/></p>
+            <h1 class="display-4"><@spring.message "welcome.message"/></h1>
+            <p class="lead"><@spring.message "info.message"/></p>
             <hr class="my-4">
-            <p><@spring.message "promptMessage"/></p>
+            <p><@spring.message "prompt.message"/></p>
 
             <#--Input Section-->
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="input-group-text-1"><@spring.message "sideAText"/></span>
+                    <span class="input-group-text" id="input-group-text-1"><@spring.message "side.a.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_1" aria-describedby="input-group-text-1" ng-model="triangleSides.side_a">
+                <input type="text" class="form-control" id="side_1" aria-describedby="input-group-text-1" ng-model="triangleSides.a">
 
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="input-group-text-2"><@spring.message "sideBText"/></span>
+                    <span class="input-group-text" id="input-group-text-2"><@spring.message "side.b.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_2" aria-describedby="input-group-text-2" ng-model="triangleSides.side_b">
+                <input type="text" class="form-control" id="side_2" aria-describedby="input-group-text-2" ng-model="triangleSides.b">
 
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="input-group-text-3"><@spring.message "sideCText"/></span>
+                    <span class="input-group-text" id="input-group-text-3"><@spring.message "side.c.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="triangleSides.side_c">
+                <input type="text" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="triangleSides.c">
             </div>
 
             <#--Button Section-->
             <p class="lead">
-                <button type="button" class="btn btn-primary btn-lg" ng-click="evaluateTriangle(triangleSides)"><@spring.message "btnEvaluateMessage"/></button>
-                <button type="button" class="btn btn-danger btn-lg" ng-click="clear()"><@spring.message "btnClearMessage"/></button>
+                <button type="button" class="btn btn-primary btn-lg" ng-click="evaluateTriangle(triangleSides)"><@spring.message "btn.evaluate"/></button>
+                <button type="button" class="btn btn-danger btn-lg" ng-click="clear()"><@spring.message "btn.clear"/></button>
             </p>
 
             <#--Outcome Section-->
