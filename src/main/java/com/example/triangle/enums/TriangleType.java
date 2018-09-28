@@ -8,18 +8,18 @@ public enum TriangleType {
     SCALENE(true, "triangle.scalene");
 
     private final boolean isTriangle;
-    private final String description;
+    private final String messageKey;
 
-    TriangleType(boolean isTriangle, String description) {
+    TriangleType(boolean isTriangle, String messageKey) {
         this.isTriangle = isTriangle;
-        this.description = description;
+        this.messageKey = messageKey;
     }
 
     public boolean isTriangle() {
         return isTriangle;
     }
 
-    public String getDescription() {
-        return description;
+    public String getMessageKey() {
+        return messageKey;
     }
 }

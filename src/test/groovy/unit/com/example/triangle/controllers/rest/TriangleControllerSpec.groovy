@@ -1,27 +1,39 @@
-package unit.com.example.triangle.controllers.rest
+package com.example.triangle.controllers.rest
 
-import com.example.triangle.business.rest.facade.api.TriangleFacade
-import com.example.triangle.business.rest.facade.runtime.TriangleFacadeImpl
-import com.example.triangle.controllers.rest.TriangleController
+import org.springframework.context.MessageSource
+
+import com.example.triangle.business.rest.services.api.TriangleService
+import com.example.triangle.enums.TriangleType
+
 import spock.lang.Specification
-import spock.lang.Unroll
 
 class TriangleControllerSpec extends Specification {
 
-    @Unroll
-    def "Should correctly interact with dependencies"() {
-        given: "Mock dependencies for Controller"
-        TriangleFacade triangleFacadeMock = Mock(TriangleFacadeImpl.class)
-        TriangleController triangleController = new TriangleController(triangleFacadeMock)
+    TriangleService triangleService;
+    MessageSource messageSource
+    TriangleController controller
 
-        when: "Evaluate triangle type is asked"
-        triangleController.evaluateType(a, b, c)
+    def setup() {
+        triangleService = Mock()
+        messageSource = Mock()
+        controller = new TriangleController(triangleService, messageSource)
+    }
 
-        then: "Controller correctly interact with dependencies"
-        1 * triangleFacadeMock.evaluateTriangle(a, b, c)
+    def "Verify interactions when evaluate triangle type is requested"() {
+        given: "Valid input parameters"
+            int a = 1, b = 2, c = 3
+            TriangleType type = TriangleType.NO_TRIANGLE
+            String message = "No triangle"
 
-        where:
-        a | b | c
-        1 | 2 | 3
+        when: "Triangle type evaluation is requested"
+            def response = controller.evaluateType(a, b, c)
+
+        then: "Verify correct interactions"
+            1 * triangleService.determineType(a, b, c) >> type
+            1 *  messageSource.getMessage(type.getMessageKey(), null, _ as Locale) >> message
+
+        and: "Verify the correct response"
+            !response.isTriangle()
+            response.getDescription() == message
     }
 }

@@ -17,14 +17,14 @@ public class TriangleServiceImpl implements TriangleService {
     }
 
     private TriangleType getType(int a, int b, int c) {
-        TriangleType answer;
+        TriangleType type;
         if (a == b && b == c) {
-            answer = TriangleType.EQUILATERAL;
+            type = TriangleType.EQUILATERAL;
         } else if (a == b || b == c || a == c) {
-            answer = TriangleType.ISOSCELES;
+            type = TriangleType.ISOSCELES;
         } else {
-            answer = TriangleType.SCALENE;
+            type = TriangleType.SCALENE;
         }
-        return answer;
+        return type;
     }
 }
