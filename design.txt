@@ -1,27 +1,14 @@
--------------------------------------------
-Design Decisions And Implementation Choices
--------------------------------------------
-
-General
------
-The system constitutes a web application, providing a simple user interface for interacting with the core part of the system.
-The system architecture and several design and implementation choices are described below.
-
-==========================================================================================================================================
+-----------------------------
+Design Implementation Choices
+-----------------------------
 
 Front End Part
 ==============
 
-Tech Stack
-----------
-
-- Bootstrap v4.0
-- AngularJS v1.6.9
-
 Description
 -----------
 The front end part of the system is based on Bootstrap and AngularJS.
-The UI is simple, prompting the user to provide as input the lengths of the 3 sides of a triangle and evaluating the result.
+The UI is simple, prompting the user to input the lengths of the 3 sides of a triangle and evaluating the result.
 Evaluate and Clear buttons exist to support respective functionality.
 
 The front end part of the system communicates with the back end part asynchronously using AJAX requests.
@@ -33,7 +20,6 @@ It is implemented with GET HTTP request sending the 3 sides as query parameters 
 GET HTTP request fits best to the nature of the problem (idempotent and safe).
 JSON format fits best for this kind of communication as there is no need for unmarshalling to JS objects.
 
-
 Based on the HTTP status code the system:
 HTTP status 200 -> displays the type of the triangle in green background colour.
 HTTP status [400, 422, 4xx/5xx] -> displays a general warning message in red background.
@@ -44,22 +30,9 @@ All the text content of the UI is externalize to properties file and could easil
 With regards to AngularJS code, the controllers are separated in an external module and being injected to the main module of our application.
 By this approach they could easily be reused and scale.
 
-==========================================================================================================================================
-
 
 Back End Part
 =============
-
-Tech Stack
-----------
-- Java 8
-- Spring Boot 2
-- Spring 5 (MVC)
-- Freemarker template engine
-- REST API using Spring MVC Controllers
-- Java Bean Validation Using hibernate validator
-- Spock unit test framework
-- Spring testing
 
 Description
 -----------
@@ -94,68 +67,53 @@ TriangleController.java
 - Handler of REST endpoint.
 - Contains no business logic.
 - Performs Input Validation Rules with Java Bean Validation.
-- Delegates actual processing to business facades.
-The controller has no knowledge of the business and it should not have.
-It only validates the input and delegates the processing of the request to the appropriate business facade.
-
-TriangleFacadeImpl.java
------------------------
-- Facade pattern in our back end application.
-- Serves as a business facade in our application which in a larger and more complex system would use many related services to perform the actual processing and apply the respective business rules.
-- It's main responsibility is to simplify the API exposed to controllers and utilizes functionality exposed from the related business services.
-- It acts as a coordinator of the steps that should be performed for an actual functionality - high level business logic exist here.
-- At the end it uses a factory to create appropriate response.
-The facade has little knowledge of the implementation details and acts level for high level business rules.
-Appropriate and related services have been injected into the facade and also appropriate response factory to provide a response to the controller.
-It a larger application it would have more services injected into the facade.
+- Delegates actual processing to the appropriate serice.
 
 TriangleServiceImpl.java
 ------------------------
 - Service class that has the implementation of the actual business logic in it.
-- All business rules would be found in such classes in a larger system.
-- In a larger system (that may have a DB) services might have repository/DAO classes injected
-- In a larger system services might integrate with external systems (e.g via REST calls using adapter pattern/adapter classes)
-- In a larger system many and small services should be created to expose related business functionality to upper layers of the architecture (i.e facade classes)
-The service includes all the business rules for any exposed functionality.
-
-TriangleResponseFactory.java
-----------------------------
-- Class that serves as a factory for the REST endpoint response.
-- In a larger application we may have many of those factory classes bind to related services.
-- It has a dependency to MessageSource, in order to generate response messages that are externalized to properties file.
 
 TriangleType.java
 -----------------
 - Enumeration for types of triangle.
 - Property indicating whether it is a triangle.
 - Property indicating the key to search an externalized message.
-Enums are a perfect way to implement a set of predefined constants in an application providing also compile time type safety.
 
 GlobalExceptionHandler.java
 ---------------------------
 - It serves as a global exception handler in our application.
-- It is annotated with @RestControllerAdvice and handles all exceptions being thrown from all controllers in our application.
-- It is a single point for common exception handling and in a larger application all global exceptions should be handled here (of course not the low level exceptions).
+- It is annotated with @RestControllerAdvice and handles all exceptions being thrown from rest controllers in our application.
+- It is a single point for common exception handling and in a larger application all global exceptions should be handled here.
 - The code is more structured and eliminates code duplication for common exceptions with the same error handling actions.
-In a larger application it might have response factories injected to create appropriate error responses according to business needs.
 
 TriangleResponse.java
 ---------------------
-- Serves as a container for the response provided through the REST API.
+- Response class for the REST endpoint.
 - In a larger application it might be a container with more fields or a subclass of a general response class.
-- Typically in larger applications we will find quite many classes of this kind, based on exposed REST API.
 
 GeneralErrorResponse.java
 -------------------------
-- Same as above but for general error responses.
+- General error response class.
 - In a larger application it might have more fields or be the parent class of a hierarchy of errors.
 
 General Programming
 -------------------
 - Reference through interfaces which allow us to switch easily implementations.
 - Single responsibility principle (all classes have only one reason to change).
-- Dependency Injection (all dependencies are being injected through constructor injection with the help of Spring Framework) -> loose coupling.
+- Dependency Injection (all dependencies are being injected through constructor injection with the help of Spring Framework).
 - Java Based Spring Configuration over XML.
 - Spock used as a test framework especially for its expressiveness.
-- Spring test used as an integration framework for spring controllers.
-- ValidationMessages.properties being used to host bean validation messages.
+
+
+Tech Stack
+----------
+- Java 8
+- Spring Boot 2
+- Spring 5 (MVC)
+- Freemarker template engine
+- REST API using Spring MVC Controllers
+- Java Bean Validation Using hibernate validator
+- Spock unit test framework
+- Bootstrap v4.0
+- AngularJS v1.6.9
+
