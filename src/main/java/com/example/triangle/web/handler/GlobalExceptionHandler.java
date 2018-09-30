@@ -1,6 +1,6 @@
-package com.example.triangle.exceptions.rest.handlers;
+package com.example.triangle.web.handler;
 
-import com.example.triangle.response.rest.GeneralErrorResponse;
+import com.example.triangle.web.response.GeneralErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,4 +1,4 @@
-package com.example.triangle.controllers;
+package com.example.triangle.web.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

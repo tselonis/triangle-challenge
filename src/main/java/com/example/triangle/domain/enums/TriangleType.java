@@ -1,4 +1,4 @@
-package com.example.triangle.enums;
+package com.example.triangle.domain.enums;
 
 public enum TriangleType {
 

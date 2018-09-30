@@ -1,7 +1,7 @@
-package com.example.triangle.business.rest.services.runtime;
+package com.example.triangle.service.runtime;
 
-import com.example.triangle.business.rest.services.api.TriangleService;
-import com.example.triangle.enums.TriangleType;
+import com.example.triangle.service.api.TriangleService;
+import com.example.triangle.domain.enums.TriangleType;
 import org.springframework.stereotype.Component;
 
 @Component

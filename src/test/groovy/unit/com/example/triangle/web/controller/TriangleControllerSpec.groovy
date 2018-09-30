@@ -1,9 +1,9 @@
-package com.example.triangle.controllers.rest
+package com.example.triangle.web.controller
 
 import org.springframework.context.MessageSource
 
-import com.example.triangle.business.rest.services.api.TriangleService
-import com.example.triangle.enums.TriangleType
+import com.example.triangle.domain.enums.TriangleType
+import com.example.triangle.service.api.TriangleService
 
 import spock.lang.Specification
 

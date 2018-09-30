@@ -1,4 +1,4 @@
-package com.example.triangle.controllers.rest;
+package com.example.triangle.web.controller;
 
 import javax.validation.constraints.Positive;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.triangle.business.rest.services.api.TriangleService;
-import com.example.triangle.enums.TriangleType;
-import com.example.triangle.response.rest.TriangleResponse;
+import com.example.triangle.service.api.TriangleService;
+import com.example.triangle.domain.enums.TriangleType;
+import com.example.triangle.web.response.TriangleResponse;
 
 @Validated
 @RestController

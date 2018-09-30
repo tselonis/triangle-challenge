@@ -1,7 +1,7 @@
-package com.example.triangle.business.rest.services.runtime
+package com.example.triangle.service.runtime
 
-import com.example.triangle.business.rest.services.api.TriangleService
-import com.example.triangle.enums.TriangleType
+import com.example.triangle.domain.enums.TriangleType
+import com.example.triangle.service.api.TriangleService
 
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -29,4 +29,5 @@ class TriangleServiceImplSpec extends Specification {
             5 | 4 | 5 | TriangleType.ISOSCELES
             7 | 4 | 5 | TriangleType.SCALENE
     }
+
 }

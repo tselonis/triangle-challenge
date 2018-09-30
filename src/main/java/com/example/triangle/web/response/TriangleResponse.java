@@ -1,4 +1,4 @@
-package com.example.triangle.response.rest;
+package com.example.triangle.web.response;
 
 public class TriangleResponse {
 
