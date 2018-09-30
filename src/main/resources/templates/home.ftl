@@ -24,17 +24,17 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="input-group-text-1"><@spring.message "side.a.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_1" aria-describedby="input-group-text-1" ng-model="triangleSides.a">
+                <input type="number" class="form-control" id="side_1" aria-describedby="input-group-text-1" ng-model="triangleSides.a">
 
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="input-group-text-2"><@spring.message "side.b.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_2" aria-describedby="input-group-text-2" ng-model="triangleSides.b">
+                <input type="number" class="form-control" id="side_2" aria-describedby="input-group-text-2" ng-model="triangleSides.b">
 
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="input-group-text-3"><@spring.message "side.c.text"/></span>
                 </div>
-                <input type="text" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="triangleSides.c">
+                <input type="number" class="form-control" id="side_3" aria-describedby="input-group-text-3" ng-model="triangleSides.c">
             </div>
 
             <#--Button Section-->
